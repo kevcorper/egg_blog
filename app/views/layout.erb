@@ -18,6 +18,19 @@
   <title></title>
 </head>
 <body>
+  <h1>EggBlog</h1>
+  <nav>
+    <a href="/">home</a>
+    <% if !logged_in? %>
+      <a href="/users/new"> register </a>
+      <a href="/sessions/new"> log in </a>
+    <% else %>
+      <a href="/users/<%= current_user.id %>"><%= current_user.username.downcase %></a>
+      <form method="post" action="/sessions">
+        <input type="submit" value="Log Out">
+        <input type="hidden" name="_method" value="delete">
+      </form>
+  </nav>
   <%= yield %>
 </body>
 </html>
