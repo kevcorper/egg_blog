@@ -41,17 +41,13 @@ nav a:hover {
 .main-title {
 	display: block;
 	float: left;
-	font-size: 30px;
+	font-size: 40px;
 	font-family: Helvetica, sans-serif;
 	text-decoration: none;
 	color: #40e0d0;
 }
 
 .main-title:hover {
-	float: left;
-	font-size: 30px;
-	font-family: Helvetica, sans-serif;
-	text-decoration: none;
 	color: gray;
 }
 
@@ -119,4 +115,44 @@ nav a:hover {
 h4 {
 	text-align: center;
 }
+
+/* Post Show */
+
+.post-head {
+	margin-bottom: 25px;
+}
+
+.post-title {
+	display: block;
+	color: gray;
+	font-size: 25px;
+}
+
+.post-author {
+	display: block;
+	color: #40e0d0;
+	font-size: 12px;
+}
+
+.post-body {
+	border: 0.5px solid #40e0d0;
+	padding: 15px;
+	border-radius: 5px;
+}
+
+.post-tags {
+	padding: 15px;
+}
+
+.post-tags a {
+	margin-right: 15px;
+}
+
+.comment-body {
+	padding: 10px;
+	border-top: 0.5px solid gray;
+}
+
+
+
 
