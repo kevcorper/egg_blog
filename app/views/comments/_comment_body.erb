@@ -1,0 +1,13 @@
+<div class="comment-body">
+	<%= comment.body %><br>
+	Written by: <%= comment.user.username %>
+	<% if correct_user?(comment.user) %>
+		<div class="comment-buttons">
+		<a href="/comments/<%= comment.id %>/edit">edit</a>
+		<form id="delete-comment" class="logout" method="post" action="/comments/<%= comment.id %>">
+		  <input class="logout-button" type="submit" value="delete">
+		  <input type="hidden" name="_method" value="delete">
+		</form>
+		</div>
+	<% end %>
+</div>

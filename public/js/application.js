@@ -22,14 +22,28 @@ $(document).ready(function() {
 		$('.comments-all').slideToggle()
 	});
 
+
 	$('.comment-form').on('submit', function(event) {
 		event.preventDefault();
 
 		$target = $(event.target)
 
-		// $.ajax({url: $target.attr('action'), data: data.serialize()})
-		// 	.done(function(response) {
+		$.ajax({url: $target.attr('action'), data: $target.serialize(), type: $target.attr('method')})
+			.done(function(response) {
+				$('#old-comments').append(response)
+				$('.comment-form input[type="submit"]').val('')
+			})
+	}); 
 
-		// 	})
+
+	$('#delete-comment').on('submit', function(event) {
+		event.preventDefault();
+
+		$target = $(event.target)
+
+		$.ajax({url: $target.attr('action'), type: "delete"})
+			.done(function(response) {
+				$target.parent().remove()
+			})
 	}); 
 });
