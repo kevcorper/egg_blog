@@ -1,0 +1,6 @@
+Hey there, <%= @user.name %>!
+<br>
+<form method="post" action="/users/<%= @user.id %>">
+  <input type="submit" value="REMOVE ACCOUNT">
+  <input type="hidden" name="_method" value="delete">
+</form>

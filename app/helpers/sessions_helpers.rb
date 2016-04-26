@@ -8,7 +8,7 @@ module Sessions
 	end
 
 	def correct_user?(user)
-		User.find(session[:user_id]) == user.id
+		session[:user_id] == user.id
 	end
 end
 

@@ -1,0 +1,5 @@
+User.create(name: "Kevin", username: "kevin", email: "bla@blah.com", password: "kevin")
+Post.create(title: "I like eggs", body: "I really like eggs, they are very versatile for breakfast", author_id: 1)
+Comment.create(body: "That is funny", user_id: 1, post_id: 1)
+Tag.create(name: "fun")
+PostTag.create(post_id: 1, tag_id: 1)
