@@ -7,4 +7,9 @@ class Post < ActiveRecord::Base
 	validates :title, presence: true
 	validates :body, presence: true
 	validates :author_id, presence: true
+
+	def tag_names_string
+		array = self.tags.each_with_object([]){ |tag, holder| holder << tag.name }
+		array.join(' ')
+	end
 end

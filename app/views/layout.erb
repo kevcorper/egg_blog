@@ -15,23 +15,26 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>EggBlog</title>
 </head>
 <body>
-  <a href="/"><h1>EggBlog</h1></a>
-  <nav>
-    <a href="/">home</a>
-    <% if !logged_in? %>
-      <a href="/users/new"> register </a>
-      <a href="/sessions/new"> log in </a>
-    <% else %>
-      <a href="/users/<%= current_user.id %>"><%= current_user.username.downcase %></a>
-      <form method="post" action="/sessions">
-        <input type="submit" value="Log Out">
-        <input type="hidden" name="_method" value="delete">
-      </form>
-    <% end %>
-  </nav>
+  <div class="main-header">
+    <a href="/" class="main-title">EggBlog</a>
+    <nav>
+      <a href="/">home</a>
+      <a href="/tags">nests</a>
+      <% if !logged_in? %>
+        <a href="/users/new"> register </a>
+        <a href="/sessions/new"> log in </a>
+      <% else %>
+        <a href="/users/<%= current_user.id %>"><%= current_user.username.downcase %></a>
+        <form class="logout" method="post" action="/sessions">
+          <input class="logout-button" type="submit" value="log out">
+          <input type="hidden" name="_method" value="delete">
+        </form>
+      <% end %>
+    </nav>
+  </div class="main-header">
   <%= yield %>
 </body>
 </html>

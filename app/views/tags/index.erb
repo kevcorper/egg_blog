@@ -1,0 +1,9 @@
+<ul>
+<% Tag.all.each do |tag| %>
+	<li>
+		<a href="/tags/<%= tag.id %>"><%= tag.name %></a>
+		<%= tag.posts.count %> 
+		<%= tag.posts.count == 1 ? "post" : "posts" %>
+	</li>
+<% end %>
+</ul>

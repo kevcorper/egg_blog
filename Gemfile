@@ -16,6 +16,9 @@ gem 'shotgun'
 
 gem 'bcrypt'
 
+gem 'pry'
+gem 'pry-nav'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
