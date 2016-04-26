@@ -24,6 +24,14 @@ put '/posts/:id' do
 	@post = Post.find(params[:id])
 	@post.assign_attributes(params[:post])
 	if @post.save
+		if params[:tags]
+			@tags = params[:tags].split(' ')
+			@tags.each do |tag|
+				found_tag = Tag.find_by(name: tag)
+				found_tag ? @tag = found_tag : @tag = Tag.create(name: tag)
+				PostTag.create(post_id: @post.id, tag_id: @tag.id)
+			end
+		end
 		erb :"posts/show"
 	else
 		@errors = @post.errors.full_messages unless @post.save
@@ -43,7 +51,7 @@ post '/posts' do
 				PostTag.create(post_id: @post.id, tag_id: @tag.id)
 			end
 		end
-		redirect '/'
+		erb :"posts/show"
 	else
 		@errors = @post.errors.full_messages
 		erb :'/posts/new'

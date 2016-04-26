@@ -1,7 +1,10 @@
-<h2><%= @post.title %></h2>
+<div class="post-head">
+<span class="post-title"><%= @post.title %></span>
+<span class="post-author">by <%= @post.author.username %></span>
+</div>
 
-<div class="post_body"><%= @post.body %></div>
-<div class="post_tags">
+<div class="post-body"><%= @post.body %></div>
+<div class="post-tags">
 	<% @post.tags.each do |tag| %>
 	<a href="/tags/<%= tag.id %>"><%= tag.name %></a>
 	<% end %>
@@ -10,3 +13,24 @@
 <% if correct_user?(@post.author) %>
 	<a href="/posts/<%= @post.id %>/edit">Edit</a>
 <% end %> 
+
+<h4>Comments</h4>
+
+
+<a class="create-button" href="/posts/<%= @post.id %>/comments/new">comment</a>
+
+<div class="comments-all">
+	<% @post.comments.each do |comment| %>
+		<div class="comment-body">
+			<%= comment.body %><br>
+			Written by: <%= comment.user.username %>
+			<% if correct_user?(comment.user) %>
+				<a href="/comments/<%= comment.id %>/edit">edit</a>
+				<form class="logout" method="post" action="/comments/<%= comment.id %>">
+				  <input class="logout-button" type="submit" value="delete">
+				  <input type="hidden" name="_method" value="delete">
+				</form>
+			<% end %>
+		</div>
+	<% end %>
+</div>
