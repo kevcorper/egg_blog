@@ -2,7 +2,7 @@
 
 <%= erb :_errors, locals: {errors: @errors} %>
 
-<form method="post" action="/users">
+<form class="pure-form pure-form-stacked" method="post" action="/users">
 	<input type="text" name="user[name]" placeholder="full name">
 	<input type="text" name="user[username]" placeholder="username">
 	<input type="email" name="user[email]" placeholder="email@example.com">

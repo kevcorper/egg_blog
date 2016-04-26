@@ -1,5 +1,24 @@
-Hey there, <%= @user.name %>!
+<h3>Hey there, <%= @user.name %>!</h3>
+
+Posts you have created:
+<% @user.posts.each do |post| %>
+	<a class="blog-intro" href="/posts/<%= post.id %>">
+	<%= post.title + '  (  ' + post.body[0...40] + '...'  + '  )  '%>
+	</a>
+	<% if correct_user?(post.author) %>
+		<a class="edit-button" href="/posts/<%= post.id %>/edit">edit</a>
+	<% end %> 
+<% end %>
 <br>
+<br>
+Posts you have commented on:
+<% @user.comments.each do |comment| %>
+	<a class="blog-intro" href="/posts/<%= comment.post.id %>">
+	<%= comment.post.title + '  (  ' + comment.post.body[0...40] + '...'  + '  )  '%>
+	</a>
+<% end %>
+
+
 <form method="post" action="/users/<%= @user.id %>">
   <input type="submit" value="REMOVE ACCOUNT">
   <input type="hidden" name="_method" value="delete">

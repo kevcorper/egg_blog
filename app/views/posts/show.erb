@@ -1,6 +1,9 @@
 <div class="post-head">
 <span class="post-title"><%= @post.title %></span>
 <span class="post-author">by <%= @post.author.username %></span>
+<% if correct_user?(@post.author) %>
+	<a class="edit-button" href="/posts/<%= @post.id %>/edit">edit</a>
+<% end %> 
 </div>
 
 <div class="post-body"><%= @post.body %></div>
@@ -10,27 +13,21 @@
 	<% end %>
 </div>
 
-<% if correct_user?(@post.author) %>
-	<a href="/posts/<%= @post.id %>/edit">Edit</a>
-<% end %> 
-
-<h4>Comments</h4>
-
-
-<a class="create-button" href="/posts/<%= @post.id %>/comments/new">comment</a>
+<a class="comments-button create-button" href="/posts/<%= @post.id %>/comments/new"><%= @post.comments.count %> comments</a>
 
 <div class="comments-all">
-	<% @post.comments.each do |comment| %>
-		<div class="comment-body">
-			<%= comment.body %><br>
-			Written by: <%= comment.user.username %>
-			<% if correct_user?(comment.user) %>
-				<a href="/comments/<%= comment.id %>/edit">edit</a>
-				<form class="logout" method="post" action="/comments/<%= comment.id %>">
-				  <input class="logout-button" type="submit" value="delete">
-				  <input type="hidden" name="_method" value="delete">
-				</form>
-			<% end %>
-		</div>
+	<div id="old-comments">
+		<% @post.comments.each do |comment| %>
+			<%= erb :'comments/_comment_body', locals: {comment: comment} %>
+		<% end %>	
+	</div>
+	<br>
+	<% if logged_in? %>
+	<h4>Add a comment:</h4>
+	<%= erb :_errors, locals: {errors: @errors} %>
+	<form class="comment-form pure-form pure-form-stacked" method="post" action="/posts/<%= @post.id %>/comments">
+		<textarea name="comment[body]" placeholder="Write your comment here"></textarea>
+		<input type="submit" value="save">
+	</form>
 	<% end %>
 </div>

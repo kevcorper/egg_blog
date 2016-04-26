@@ -1,5 +1,7 @@
-Edit your comment:
-<form method="post" action="/comments/<%= @comment.id %>">
+<h4>Edit your comment:</h4>
+
+<%= erb :_errors, locals: {errors: @errors} %>
+<form class="pure-form pure-form-stacked" method="post" action="/comments/<%= @comment.id %>">
 	<input type="hidden" name="_method" value="put">
 	<textarea name="comment[body]"><%= @comment.body %></textarea>
 	<input type="submit" value="save">
