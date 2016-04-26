@@ -1,7 +1,35 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+	$('.create-egg').on('click', function(event) {
+		event.preventDefault();
+		$target = $(event.target)
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+		if ($target.text() == "hide form") {
+			$target.parent().find('.new-post').remove();
+			$target.text('create egg');
+		}
+		else {
+			$.ajax({url: $target.attr("href")})
+				.done(function(response) {
+					$target.after(response);
+					$target.text("hide form");
+				})
+		};
+	});
+	
+
+	$('.comments-button').on('click', function() {
+		event.preventDefault();
+		$('.comments-all').slideToggle()
+	});
+
+	$('.comment-form').on('submit', function(event) {
+		event.preventDefault();
+
+		$target = $(event.target)
+
+		// $.ajax({url: $target.attr('action'), data: data.serialize()})
+		// 	.done(function(response) {
+
+		// 	})
+	}); 
 });

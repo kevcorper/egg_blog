@@ -2,7 +2,7 @@
 
 <%= erb :_errors, locals: {errors: @errors} %>
 
-<form class="comment-form pure-form pure-form-stacked" method="post" action="/posts/<%= @post.id %>/comments">
+<form class="pure-form pure-form-stacked" method="post" action="/posts/<%= post.id %>/comments">
 	<textarea name="comment[body]" placeholder="Write your comment here"></textarea>
 	<input type="submit" value="save">
 </form>

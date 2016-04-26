@@ -1,10 +1,17 @@
 <h4>welcome to EggBlog, where you can explore nests and create your own eggs</h4>
 
-<a class="create-button" href="/posts/new">create egg</a>
+<a class="create-egg create-button" href="/posts/new">create egg</a>
 
 <% Post.all.each do |post| %>
 	<a class="blog-intro" href="/posts/<%= post.id %>">
-	<%= post.title + '  (  ' + post.body[0...40] + '...'  + '  )  '%>
+	<div class="blog-info">
+		<span class="b-title"><%= post.title %></span>
+		<span class="b-author">by: <%= post.author.username %></span>
+	</div>
+	<div class="date_created">
+		<%= post.updated_at.strftime('%m/%d/%Y') %><br>
+		<%= post.comments.count %> comments
+	</div>
 	</a>
 <% end %>
 </ul>

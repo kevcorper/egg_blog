@@ -1,4 +1,6 @@
-<form method="post" action="/posts/<%= @post.id %>">
+<%= erb :_errors, locals: {errors: @errors} %>
+
+<form class="pure-form pure-form-stacked" method="post" action="/posts/<%= @post.id %>">
 	<input type="hidden" name="_method" value="put">
 	<input type="text" name="post[title]" value="<%= @post.title %>">
 	<textarea name="post[body]"><%= @post.body %></textarea>

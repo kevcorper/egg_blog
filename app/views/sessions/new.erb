@@ -2,7 +2,7 @@
 
 <%= erb :_errors, locals: {errors: @errors} %>
 
-<form method="post" action="/sessions">
+<form class="pure-form" method="post" action="/sessions">
 	<input type="text" name="username" placeholder="Username">
 	<input type="password" name="password" placeholder="Password">
 	<input type="submit" value="log in">

@@ -1,8 +1,8 @@
-Create a post here!
+<%= erb :_errors, locals: {errors: @errors} %>
 
-<form method="post" action="/posts">
+<form class="new-post post-form pure-form pure-form-stacked" method="post" action="/posts">
 	<input type="text" name="post[title]" placeholder="Title">
 	<textarea name="post[body]" placeholder="Write your post here!"></textarea>
-	<input type="text" name="tags" placeholder="separate tags with a single space">
+	nests: <input type="text" name="tags" placeholder="separate nests with a single space">
 	<input type="submit" value="Post">
 </form>

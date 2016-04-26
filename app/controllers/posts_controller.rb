@@ -3,7 +3,9 @@ get '/posts' do
 end
 
 get '/posts/new' do
-  if logged_in?
+  if logged_in? && request.xhr?
+  	erb :'/posts/new', layout: false
+  elsif logged_in?
   	erb :'/posts/new'
   else
   	redirect '/sessions/new'
