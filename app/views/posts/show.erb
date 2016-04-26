@@ -1,0 +1,7 @@
+<h2><%= @post.title %></h2>
+
+<%= @post.body %>
+
+<% if correct_user?(@post.author) %>
+	<a href="/posts/<%= @post.id %>/edit">Edit</a>
+<% end %> 

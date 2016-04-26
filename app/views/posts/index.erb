@@ -1,0 +1,15 @@
+<a href="/posts/new">Create Post</a>
+
+<h3>Below you can see the current posts:</h3>
+
+<ol>
+<% Post.all.each do |post| %>
+	<li class="blog-intro">
+		<a href="/posts/<%= post.id %>"><%= post.title + '  (  ' + post.body[0...40] + '...'  + '  )  '%></a>
+
+		<% if logged_in? && correct_user?(post.author) %>
+			<a href="/posts/<%= post.id %>/edit">Edit</a>
+		<% end %> 
+	</li>
+<% end %>
+</ol>

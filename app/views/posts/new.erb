@@ -1,0 +1,13 @@
+Create a post here!
+
+<form method="post" action="/posts">
+	<input type="text" name="post[title]" placeholder="Title">
+	<textarea name="post[body]" placeholder="Write your post here!"></textarea>
+	<input type="text" name="tag[array]" placeholder="separate tags with a single space">
+	<input type="submit" value="Post">
+</form>
+
+<form method="post" action="/tags">
+	<input type="text" name="tag[name]" placeholder="separate tags with a single space">
+	<input type="submit" value="Post">
+</form>

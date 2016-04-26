@@ -1,0 +1,11 @@
+<h4>Register here!</h4>
+
+<%= erb :_errors, locals: {errors: @errors} %>
+
+<form method="post" action="/users">
+	<input type="text" name="user[name]" placeholder="full name">
+	<input type="text" name="user[username]" placeholder="username">
+	<input type="email" name="user[email]" placeholder="email@example.com">
+	<input type="password" name="user[password]" placeholder="password">
+	<input type="submit" value="Register">
+</form>
