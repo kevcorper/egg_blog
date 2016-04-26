@@ -1,0 +1,122 @@
+/*    Layout    */
+
+body {
+	width: 75%;
+	margin: 25px auto;
+	color: gray;
+}
+
+a {
+	text-decoration: none;
+	color: #40e0d0;
+}
+
+a:hover {
+	color: gray;
+}
+
+.main-header {
+	margin-bottom: 25px;
+	display: block;
+	border-top: 1px solid black;
+	height: 40px;
+}
+
+nav {
+	float: right;
+	color: gray;
+}
+
+nav a {
+	color: #40e0d0;
+	margin-left: 10px;
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: gray;
+	text-decoration: none;
+}
+
+.main-title {
+	display: block;
+	float: left;
+	font-size: 30px;
+	font-family: Helvetica, sans-serif;
+	text-decoration: none;
+	color: #40e0d0;
+}
+
+.main-title:hover {
+	float: left;
+	font-size: 30px;
+	font-family: Helvetica, sans-serif;
+	text-decoration: none;
+	color: gray;
+}
+
+.logout {
+	display: inline;
+}
+
+.logout-button {
+	margin:0;
+	border:0;
+	padding:0;
+	display:inline;
+	white-space:normal;
+	background:none;
+	line-height:1;
+	margin-left: 10px;
+	color: #40e0d0;
+}
+
+.logout-button:hover {
+	color: gray;
+}
+
+/*    Post index    */
+
+.create-button {
+	text-decoration: none;
+	display: block;
+	width: 100px;
+	text-align: center;
+	background-color: #40e0d0;
+	color: white;
+	padding: 5px;
+	border: 0.5px solid #40e0d0;
+	border-radius: 3px;
+	margin: 25px auto;
+}
+
+.create-button:hover {
+	background-color: #00d0d0;
+	color: white;
+	border: 0.5px solid #00d0d0;
+}
+
+.blog-intro {
+	border: 0.5px solid gray;
+	margin: 25px auto;
+	text-align: center;
+	background-color: gray;
+	display: block;
+	width: 80%;
+	padding: 10px;
+	text-decoration: none;
+	color: white;
+	border-radius: 5px;
+}
+
+.blog-intro:hover {
+	text-decoration: none;
+	color: white;
+	background-color: #40e0d0;
+	border: 0.5px solid #40e0d0;
+}
+
+h4 {
+	text-align: center;
+}
+

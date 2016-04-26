@@ -1,15 +1,10 @@
-<a href="/posts/new">Create Post</a>
+<h4>welcome to EggBlog, where you can explore nests and create your own eggs</h4>
 
-<h3>Below you can see the current posts:</h3>
+<a class="create-button" href="/posts/new">create egg</a>
 
-<ol>
 <% Post.all.each do |post| %>
-	<li class="blog-intro">
-		<a href="/posts/<%= post.id %>"><%= post.title + '  (  ' + post.body[0...40] + '...'  + '  )  '%></a>
-
-		<% if logged_in? && correct_user?(post.author) %>
-			<a href="/posts/<%= post.id %>/edit">Edit</a>
-		<% end %> 
-	</li>
+	<a class="blog-intro" href="/posts/<%= post.id %>">
+	<%= post.title + '  (  ' + post.body[0...40] + '...'  + '  )  '%>
+	</a>
 <% end %>
-</ol>
+</ul>

@@ -1,0 +1,4 @@
+<h4><%= @tag.name %></h4>
+<% @tag.posts.each do |post| %>
+	<a href="/posts/<%= post.id %>"><%= post.title %></a>
+<% end %>

@@ -1,6 +1,11 @@
 <h2><%= @post.title %></h2>
 
-<%= @post.body %>
+<div class="post_body"><%= @post.body %></div>
+<div class="post_tags">
+	<% @post.tags.each do |tag| %>
+	<a href="/tags/<%= tag.id %>"><%= tag.name %></a>
+	<% end %>
+</div>
 
 <% if correct_user?(@post.author) %>
 	<a href="/posts/<%= @post.id %>/edit">Edit</a>
