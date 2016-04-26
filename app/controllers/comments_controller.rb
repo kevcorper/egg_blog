@@ -4,9 +4,9 @@ get '/comments/:id/edit' do
 end
 
 post '/posts/:id/comments' do
-	@comment = Comment.new(params[:comment])
-	@comment[:user_id] = current_user.id
-	@comment[:post_id] = params[:id]
+	@post = Post.find(params[:id])
+	@comment = @post.comments.build(params[:comment])
+	@comment.user = current_user
 
 	if @comment.save && request.xhr?
 		erb :'comments/_comment_body', locals: {comment: @comment}, layout: false

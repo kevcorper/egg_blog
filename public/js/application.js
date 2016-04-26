@@ -36,14 +36,14 @@ $(document).ready(function() {
 	}); 
 
 
-	$('#delete-comment').on('submit', function(event) {
+	$('#old-comments').on('submit', '.delete-comment', function(event) {
 		event.preventDefault();
 
 		$target = $(event.target)
 
 		$.ajax({url: $target.attr('action'), type: "delete"})
 			.done(function(response) {
-				$target.parent().remove()
+				$target.parent().parent().remove()
 			})
 	}); 
 });
